@@ -36,7 +36,7 @@ noteRouter.patch("/update/:id", authmiddleware, async (req, res) => {
     let { id } = req.params
 
     try {
-        await Notemodel.findByIdAndUpdate({ _id: id }, req, body);
+        await Notemodel.findByIdAndUpdate({ _id: id }, req.body);
         res.status(200).json({ message: "note updated successfully" })
     } catch (error) {
         res.status(400).json({ message: "error updating note" })
